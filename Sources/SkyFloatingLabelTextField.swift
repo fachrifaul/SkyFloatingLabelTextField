@@ -153,15 +153,6 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     // MARK: Properties
 
     /**
-    The formatter used before displaying content in the title label. 
-    This can be the `title`, `selectedTitle` or the `errorMessage`.
-    The default implementation converts the text to uppercase.
-    */
-    open var titleFormatter: ((String) -> String) = { (text: String) -> String in
-        return text.uppercased()
-    }
-
-    /**
      Identifies whether the text object should hide the text being entered.
      */
     override open var isSecureTextEntry: Bool {
@@ -408,7 +399,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
 
         var titleText: String? = nil
         if hasErrorMessage {
-            titleText = titleFormatter(errorMessage!)
+            titleText = errorMessage!
         } else {
             if editingOrSelected {
                 titleText = selectedTitleOrTitlePlaceholder()
@@ -609,13 +600,13 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         guard let title = title ?? placeholder else {
             return nil
         }
-        return titleFormatter(title)
+        return title
     }
 
     fileprivate func selectedTitleOrTitlePlaceholder() -> String? {
         guard let title = selectedTitle ?? title ?? placeholder else {
             return nil
         }
-        return titleFormatter(title)
+        return title
     }
 } // swiftlint:disable:this file_length
