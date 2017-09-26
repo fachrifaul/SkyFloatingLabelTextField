@@ -1,6 +1,11 @@
 Master
 ------
 
+v3.2.1
+------
+* Porting to Swift 4
+* Deleted `titleFormatter`
+
 v3.2.0
 ------
 * Fixed editing rect size when clear button is present to no overlap [#148](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/148)
